@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+<section>
+<h1>liste des projets</h1>
+</section>
+<p>mon nom est : {{ name}}</p>
+<p>j'ai l'age de : {{ age}}</p>
+<ul>
+{% for techno in technos %}
+<li>{{ techno }}</li>
+{% endfor %}
+</ul>
+<h2>les personnes ci-dessus</h2>
+{% for person in people %}
+<ul>
+<li>Nom : {{ person.name|upper}}</li>
+<li>Age : {{ person.age}}</li>
+<li>Sexe : {{ person.sexe}}</li>
+</ul>
+{% endfor %}
+
+<p>mon prix sera de: {{ price |format_number(locale='fr') }}€</p>
+{% if price>50 %}
+ {{price *2}}
+ {% else %}
+     {{price*8}}
+{% endif %}
+{% if error is defefined %}
+il y a un erreur dans le formulaire
+{% endblock %}
